@@ -24,7 +24,7 @@ function LoadMore() {
 
       const timeoutId = setTimeout(() => {
         fetchAnime(page).then((res) => {
-          setData([...data, res]);
+          setData([...data, ...res]);
           page++;
         });
 
