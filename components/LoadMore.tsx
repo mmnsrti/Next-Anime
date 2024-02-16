@@ -20,11 +20,11 @@ function LoadMore() {
     if (inView) {
       setIsLoading(true);
       // Add a delay of 500 milliseconds
-      const delay = 500;
+      const delay = 1000;
 
       const timeoutId = setTimeout(() => {
         fetchAnime(page).then((res) => {
-          setData([...data, ...res]);
+          setData([...data, res]);
           page++;
         });
 
