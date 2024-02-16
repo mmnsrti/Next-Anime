@@ -3,7 +3,6 @@ import { fetchAnime } from "@/app/action";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import AnimeCard from "./AnimeCard";
 
 
 export type AnimeCard = JSX.Element;
