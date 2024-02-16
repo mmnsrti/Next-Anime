@@ -6,13 +6,12 @@ import { useEffect, useState } from "react";
 
 import { fetchAnime } from "../app/action";
 
-let page = 2;
 
 export type AnimeCard = JSX.Element;
 
 function LoadMore() {
   const { ref, inView } = useInView();
-
+  const [page, setPage] = useState(2)
   const [data, setData] = useState<AnimeCard[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,8 +23,8 @@ function LoadMore() {
 
       const timeoutId = setTimeout(() => {
         fetchAnime(page).then((res) => {
-          setData((prevData) => [...prevData, ...res]); // Use functional update
-          page++;
+          setData([...data, ...res]);
+          setPage((prevPage) => prevPage + 1); // Update page using functional update
         });
 
         setIsLoading(false);
