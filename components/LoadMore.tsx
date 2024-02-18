@@ -26,9 +26,14 @@ function LoadMore() {
           setData([...data, ...res]);
           setPage(prevPage => prevPage + 1);
           setIsLoading(false);
+          console.log(res);
+          console.log(...data);
+          console.log(data);
+
 
         } catch (err) {
           console.error(err);
+          
         }
       }, delay);
 
