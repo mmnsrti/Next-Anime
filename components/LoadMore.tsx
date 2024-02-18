@@ -33,7 +33,8 @@ function LoadMore() {
 
         } catch (err) {
           console.error(err);
-          
+          console.log(...data);
+          console.log(data);
         }
       }, delay);
 
