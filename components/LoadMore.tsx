@@ -6,12 +6,11 @@ import { useEffect, useState } from "react";
 
 import { fetchAnime } from "../app/action";
 
-
 export type AnimeCard = JSX.Element;
 
 function LoadMore() {
   const { ref, inView } = useInView();
-  const [page, setPage] = useState(2)
+  const [page, setPage] = useState(2);
   const [data, setData] = useState<AnimeCard[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,13 +23,11 @@ function LoadMore() {
         try {
           const res = await fetchAnime(page);
           setData([...data, ...res]);
-          setPage(prevPage => prevPage + 1);
+          setPage((prevPage) => prevPage + 1);
           setIsLoading(false);
           console.log(res);
           console.log(...data);
           console.log(data);
-
-
         } catch (err) {
           console.error(err);
           console.log(...data);
@@ -41,7 +38,7 @@ function LoadMore() {
       // Clear the timeout if the component is unmounted or inView becomes false
       return () => clearTimeout(timeoutId);
     }
-  }, [inView, data, isLoading,page]);
+  }, [inView, data, isLoading, page]);
 
   return (
     <>
@@ -66,4 +63,3 @@ function LoadMore() {
 }
 
 export default LoadMore;
-      

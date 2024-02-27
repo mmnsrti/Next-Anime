@@ -19,21 +19,21 @@ interface Prop {
 }
 
 const variant = {
-  hidden:{opacity:0},
-  visible:{opacity:1}
-}
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
 
-
-function AnimeCard({ anime,index }: Prop) {
+function AnimeCard({ anime, index }: Prop) {
   return (
     <MotionDiv
       variants={variant}
       animate="visible"
-      transition={{delay:index*0.25,ease:'easeInOut',duration:0.5}}
+      transition={{ delay: index * 0.25, ease: "easeInOut", duration: 0.5 }}
       initial="hidden"
-      viewport={{amount:0}}
-      className="max-w-sm rounded relative w-full">
-      <div className="relative w-full h-[37vh]">
+      viewport={{ amount: 0 }}
+      className="max-w-sm rounded relative w-full "
+    >
+      <div className="relative w-full h-[37vh] hover:opacity-20 transform ease-out duration-100 cursor-pointer ">
         <Image
           src={`https://shikimori.one${anime.image.original}`}
           alt={anime.name}
@@ -46,14 +46,14 @@ function AnimeCard({ anime,index }: Prop) {
           <h2 className="font-bold text-white text-xl line-clamp-1 w-full">
             {anime.name}
           </h2>
-          <div className="py-1 px-2 bg-[#161921] rounded-sm">
+          <div className="py-1 px-2 bg-[#161921] rounded-sm cursor-pointer">
             <p className="text-white text-sm font-bold capitalize">
               {anime.kind}
             </p>
           </div>
         </div>
-        <div className="flex gap-4 items-center">
-          <div className="flex flex-row gap-2 items-center">
+        <div className="flex gap-4 space-justify-between w-fit self-center items-center">
+          <div className="flex flex-row gap-3  items-center cursor-pointer">
             <Image
               src="./episodes.svg"
               alt="episodes"
@@ -65,7 +65,7 @@ function AnimeCard({ anime,index }: Prop) {
               {anime.episodes || anime.episodes_aired}
             </p>
           </div>
-          <div className="flex flex-row gap-2 items-center">
+          <div className="flex flex-row gap-3  items-center cursor-pointer">
             <Image
               src="./star.svg"
               alt="star"
@@ -74,6 +74,24 @@ function AnimeCard({ anime,index }: Prop) {
               className="object-contain"
             />
             <p className="text-base font-bold text-[#FFAD49]">{anime.score}</p>
+          </div>
+          <div className="flex flex-row gap-3  items-center cursor-pointer">
+            <Image
+              src="./save.svg"
+              alt="star"
+              width={25}
+              height={25}
+              className="object-contain"
+            />
+          </div>
+          <div className="flex flex-row gap-3  items-center cursor-pointer">
+            <Image
+              src="./saved.svg"
+              alt="star"
+              width={25}
+              height={25}
+              className="object-contain"
+            />
           </div>
         </div>
       </div>
